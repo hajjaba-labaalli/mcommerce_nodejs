@@ -1,6 +1,7 @@
 module.exports = {
-    mongoURI : "mongodb+srv://labaalli:mahjouba22@cluster0.8vtl0aw.mongodb.net/?retryWrites=true&w=majority"
+    mongoURI : "mongodb+srv://labaalli:<password>@cluster0.8vtl0aw.mongodb.net/?retryWrites=true&w=majority"
 }
+/*
 const Data = [
     {
         _id:	"0",
@@ -46,4 +47,4 @@ const Data = [
         image:	"https://i.ibb.co/0BtTdz4/8.png",
         prix:	730.0
         }
-]
+]*/
