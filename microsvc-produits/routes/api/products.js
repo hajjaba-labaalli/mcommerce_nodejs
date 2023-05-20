@@ -11,19 +11,14 @@ router.get('/', (req, res) => {
         .then( products => res.json(products))
 });
 
-
-// @route POST api/products
-// @desc Create a Post
+// @route GET api/products
+// @desc  GET a product
 // @access Public
-router.post('/', (req, res) => {
-    const newProduct = new Product({
-        titre: req.body.titre,
-        description: req.body.description,
-        image: req.body.image,
-        price: req.body.price
-    })
-    newProduct.save()
-           .then( product = res.json(newProduct))
+router.get('/:id', (req, res) => {
+    Product.findById(req.params.id)
+        .then( product => res.json(product))
+        .catch( err => res.status(404).json({error: "product not found"}))
+
 });
 
 module.exports =  router;

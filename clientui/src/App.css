@@ -1,0 +1,50 @@
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.product-card {
+    border: 0px solid #ccc;
+    padding: 10px ;
+}
+
+img{
+    width: 500px;
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .product-list {
+      grid-template-columns: 1fr;
+    }
+}
+.title{
+    text-decoration: none;
+}
+.title:hover{
+    text-decoration: underline;
+}
+
+.button_commander{
+    text-decoration: none;
+}
+.button_commander:hover{
+    text-decoration: underline;
+}
+.button_payer{
+    text-decoration: none;
+}
+.button_payer:hover{
+    text-decoration: underline;
+}
+p{
+    width: 400px;
+}
+.paiemant{
+    padding: 30px;
+}
