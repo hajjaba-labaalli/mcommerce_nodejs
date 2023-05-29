@@ -9,6 +9,7 @@ const Product = require('../../models/Product');
 router.get('/', (req, res) => {
     Product.find()
         .then( products => res.json(products))
+        .catch(err => res.status(404).json({error: "Aucun produit n'est disponible à la vente"}))
 });
 
 // @route GET api/products
@@ -17,7 +18,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Product.findById(req.params.id)
         .then( product => res.json(product))
-        .catch( err => res.status(404).json({error: "product not found"}))
+        .catch( err => res.status(404).json({error: "Le produit correspondant à l'id " + req.params.id + " n'existe pas"}))
 
 });
 
