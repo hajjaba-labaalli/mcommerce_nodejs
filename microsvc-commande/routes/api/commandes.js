@@ -7,6 +7,8 @@ const commandecontrollers = require('../../controllers/commandecontrollers');
 router.post('/', commandecontrollers.ajouterCommande);
 router.get('/:id', commandecontrollers.recupererUneCommande);
 router.put('/', commandecontrollers.updateCommande);
+router.post('/:id/marquerPayee', commandecontrollers.marquerCommandePayee);
+
 
 // Export du routeur
 module.exports = router;
