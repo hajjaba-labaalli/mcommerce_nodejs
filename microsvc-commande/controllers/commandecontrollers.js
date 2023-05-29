@@ -34,8 +34,22 @@ const updateCommande = (req, res) => {
   res.sendStatus(204);
 };
 
+const marquerCommandePayee = (req, res) => {
+  const id = req.params.id;
+
+  // Logique pour marquer la commande comme payée dans la base de données
+
+  res.sendStatus(204);
+};
+
+module.exports = {
+  // ...
+  marquerCommandePayee
+};
+
 module.exports = {
   ajouterCommande,
   recupererUneCommande,
-  updateCommande
+  updateCommande,
+  marquerCommandePayee
 };
