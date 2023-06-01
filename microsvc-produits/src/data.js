@@ -1,9 +1,9 @@
 module.exports = {
-    mongoURI : "mongodb+srv://labaalli:<pass>@cluster0.8vtl0aw.mongodb.net/?retryWrites=true&w=majority"
+    mongoURI : "mongodb+srv://labaalli:"+process.env.PASSWORD+"@cluster0.8vtl0aw.mongodb.net/?retryWrites=true&w=majority"
 }
 /*
 const Data = [
-    {cd ..
+    {
         _id:	"0",
         titre:	"Chaise pour s''assoire",
         description:	"Chaise rare avec non pas 1 ni 2 mais 3 pieds",

@@ -9,7 +9,7 @@ function ProductList(props) {
       // Fonction d'effet pour récupérer les produits
       const fetchProducts = async () => {
         try {
-          const response = await axios.get('/api/products');
+          const response = await axios.get("/api/products");
           const fetchedProducts = response.data;
           setProducts(fetchedProducts);
         } catch (error) {

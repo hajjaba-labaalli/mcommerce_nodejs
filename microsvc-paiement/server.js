@@ -9,5 +9,5 @@ app.use(bodyParser.json());
 
 app.use('/api/paiements', paiements); 
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3002;
 app.listen(port, () => console.log(`Serveur en écoute sur le port ${port}`) );

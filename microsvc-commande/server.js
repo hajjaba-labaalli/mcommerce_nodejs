@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const commandes = require('./routes/api/commandes');
 
@@ -7,6 +8,7 @@ const commandes = require('./routes/api/commandes');
 const app = express();
 
 // Middleware pour analyser les données JSON
+app.use(cors());
 app.use(express.json());
 
 // Use routes 
