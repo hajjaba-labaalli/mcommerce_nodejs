@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/api/commandes' , commandes);
 
 // Port d'écoute du serveur
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3005;
 
 // Démarrage du serveur
 app.listen(port, () => console.log(`Serveur démarré sur le port ${port}`) );

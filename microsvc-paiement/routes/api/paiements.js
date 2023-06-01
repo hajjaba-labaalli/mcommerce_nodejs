@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const Paiement = require('../../moduls/Paiement');
-const Commande = require('../../../microsvc-commande/moduls/Commande');
+const Commande = require('../../../microsvc-commande/models/Commande');
 
 // Route pour enregistrer un paiement et mettre à jour le statut de la commande
 router.post('/paiement', async (req, res) => {

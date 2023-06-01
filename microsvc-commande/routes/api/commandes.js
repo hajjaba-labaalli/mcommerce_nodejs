@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Commande = require('../../moduls/Commande');
+const Commande = require('../../models/Commande');
 
 // Route POST pour ajouter une commande
 
