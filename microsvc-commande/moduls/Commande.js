@@ -1,18 +1,25 @@
-class Commande {
-    constructor(id, productId, dateCommande, quantite, commandePayee) {
-      this.id = id;
-      this.productId = productId;
-      this.dateCommande = dateCommande;
-      this.quantite = quantite;
-      this.commandePayee = commandePayee;
-    }
-  
-    // Méthodes supplémentaires et getters/setters si nécessaire
-  
-    toString() {
-      return `Commande { id: ${this.id}, productId: ${this.productId}, dateCommande: ${this.dateCommande}, quantite: ${this.quantite}, commandePayee: ${this.commandePayee} }`;
-    }
+const mongoose = require('mongoose');
+
+const commandeSchema = new mongoose.Schema({
+  productId: {
+    type: Number,
+    required: true
+  },
+  dateCommande: {
+    type: Date,
+    required: true
+  },
+  quantite: {
+    type: Number,
+    required: true
+  },
+  commandePayee: {
+    type: Boolean,
+    required: true
   }
-  
-  module.exports = Commande;
+});
+
+const Commande = mongoose.model('Commande', commandeSchema);
+
+module.exports = Commande;
   
