@@ -21,7 +21,7 @@ const commandeSchema = new mongoose.Schema({
     type: Boolean,
     required: false
   }
-});
+})
 
 const Commande = mongoose.model('Commande', commandeSchema);
 
