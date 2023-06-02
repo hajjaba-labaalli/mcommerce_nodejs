@@ -1,14 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
 
 const Commande = require('../../models/Commande');
 
 // Route POST pour ajouter une commande
 router.post('/', (req, res) => {
     try {
-        const newCommande = new Commande({
-          productId: req.body.productId
-        });
+        const newCommande = new Commande(
+            id= uuidv4(),
+            productId= req.body.productId,
+            dataCommande= new Date(),
+            quantite= req.body.quantite,
+            commandePayee= false
+        
+        );
         Commande.save(newCommande)
         res.status(201).json(newCommande);
       } catch (error) {

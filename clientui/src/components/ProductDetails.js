@@ -22,7 +22,7 @@ function ProductDetails() {
   }, [id]);
 
 
-  const sendOrder =  async () => {
+  const passerCommande =  async () => {
     try{
       // Envoyer les détails de la commande au service de commande
       const response = await axios.post('http://localhost:3001/api/commandes', {
@@ -41,7 +41,7 @@ function ProductDetails() {
         <h3>{product.titre}</h3>
         <p>{product.description}</p>
         <p className='result'></p>
-        <h3><Link className='button_commander' to={`/paiemant/${product._id}/${product.price}`} onClick={sendOrder}>Commander</Link></h3>
+        <h3><Link className='button_commander' to={`/paiemant/${product._id}/${product.price}`} onClick={passerCommande}>Commander</Link></h3>
     </div>
   );
 }

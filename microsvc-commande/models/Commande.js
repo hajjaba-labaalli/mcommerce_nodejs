@@ -1,8 +1,7 @@
-const { v4: uuidv4 } = require('uuid');
 var commandes = [];
 class Commande {
-  constructor(id, productId, dateCommande, quantite, commandePayee) {
-    this.id = uuidv4();
+  constructor(id, productId, dateCommande, quantite, commandePayee){
+    this.id = id;
     this.productId = productId;
     this.dateCommande = dateCommande;
     this.quantite = quantite;
