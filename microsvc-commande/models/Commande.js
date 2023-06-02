@@ -1,29 +1,30 @@
-const mongoose = require('mongoose');
-
-const commandeSchema = new mongoose.Schema({
-  id:{
-    type: Number,
-    required: false
-  },
-  productId: {
-    type: Number,
-    required: false
-  },
-  dateCommande: {
-    type: Date,
-    required: false
-  },
-  quantite: {
-    type: Number,
-    required: false
-  },
-  commandePayee: {
-    type: Boolean,
-    required: false
+var commandes = [];
+class Commande {
+  constructor(id, productId, dateCommande, quantite, commandePayee){
+    this.id = id;
+    this.productId = productId;
+    this.dateCommande = dateCommande;
+    this.quantite = quantite;
+    this.commandePayee = commandePayee;
   }
-})
+  
+  static findById(id) {
+    return commandes.find(cmd => cmd.id === id);
+  }
 
-const Commande = mongoose.model('Commande', commandeSchema);
+  static save(commande) {
+    commandes.push(commande);
+  }
+
+  static update(id, updatedCommande) {
+    const commandeIndex = commandes.findIndex(cmd => cmd.id === id);
+    if (commandeIndex === -1) {
+      return null;
+    }else{
+      commandes[commandeIndex] = { ...commandes[commandeIndex], ...updatedCommande };
+      return commandes[commandeIndex];
+    }
+  }
+}
 
 module.exports = Commande;
-  
