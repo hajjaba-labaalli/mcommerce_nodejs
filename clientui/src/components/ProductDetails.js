@@ -40,6 +40,7 @@ function ProductDetails() {
         <img src={product.image} alt={product.titre} />
         <h3>{product.titre}</h3>
         <p>{product.description}</p>
+        <p className='result'></p>
         <h3><Link className='button_commander' to={`/paiemant/${product._id}/${product.price}`} onClick={sendOrder}>Commander</Link></h3>
     </div>
   );
