@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import ProductDetails from './components/ProductDetails';
 import ProductList from './components/ProductList';
-import Paiemant from './components/Paiemant';
+import Paiement from './components/Paiement';
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/payer-commande" element={<Paiemant />} />
-        <Route path="/payer-commande/:id/:price" element={<Paiemant />} />
+        <Route path="/payer-commande" element={<Paiement />} />
+        <Route path="/payer-commande/:id/:price" element={<Paiement />} />
       </Routes>
       
     </Router>
