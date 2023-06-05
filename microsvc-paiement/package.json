@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "test": "mocha paiements.test.js"
   },
   "author": "ALAOUI Fatimaezzahra",
   "license": "MIT",
@@ -19,6 +20,10 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2"
+  }
     "nodemon": "^2.0.22"
   },
   "proxy": "http://localhost:3001"
