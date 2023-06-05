@@ -24,4 +24,7 @@
     "nodemon": "^2.0.22",
     "request": "^2.88.2"
   }
+    "nodemon": "^2.0.22"
+  },
+  "proxy": "http://localhost:3001"
 }
