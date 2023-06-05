@@ -13,6 +13,23 @@ router.post('/', async (req, res) => {
             res.json({error: "Cette commande est déjà payée"});
             return;     
         } 
+
+        const fetchCommande = async () => {
+            try {
+              const response = await axios.get(`http://localhost:3001/api/commandes/${req.body.idCommande}`);
+              return response.data;
+            } catch (error) {
+              console.error('Erreur lors de la récupération de la commande:', error);
+              return;
+            }
+        };
+
+        const fetchedCommande = await fetchCommande();
+        if (!fetchedCommande) {
+            console.error('La commande n\'a pas été récupérée avec succès');
+            return;
+        }
+
         // Enregistrer le paiement
         const newPaiement = new Paiement (
             id= uuidv4(),
@@ -23,17 +40,6 @@ router.post('/', async (req, res) => {
         Paiement.save(newPaiement);
         console.log(newPaiement);
 
-        const fetchCommande = async () => {
-            try {
-              const response = await axios.get(`http://localhost:3001/api/commandes/${newPaiement.idCommande}`);
-              return response.data;
-            } catch (error) {
-              console.error('Erreur lors de la récupération de la commande:', error);
-              return;
-            }
-        };
-
-        const fetchedCommande = await fetchCommande();
         fetchedCommande.commandePayee = true;
         console.log(fetchedCommande);
 
@@ -41,7 +47,7 @@ router.post('/', async (req, res) => {
         await axios.put(`http://localhost:3001/api/commandes/${newPaiement.idCommande}`, fetchedCommande);
 
         // Envoyer une réponse réussie
-        res.json({ success: "Paiement enregistré avec succès" });
+        res.json({ success: "Paiement enregistré avec succès",paiementOk :true });
     }   catch (error) {
         console.error('Erreur lors de l\'enregistrement du paiement:', error);
         res.status(500).json({ error: 'Erreur lors de l\'enregistrement du paiement' });
