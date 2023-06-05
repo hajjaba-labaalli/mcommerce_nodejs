@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "test": "mocha produits.test.js"
   },
   "author": "labaalli mahjouba",
   "license": "MIT",
@@ -17,6 +18,8 @@
     "mongoose": "^7.0.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2"
   }
 }
