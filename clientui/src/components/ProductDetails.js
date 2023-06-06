@@ -8,9 +8,6 @@ function ProductDetails() {
   const [product, setProduct] = useState(id);
   //const [commande, setCommande] = useState();
   const navigate = useNavigate();
-
-
-
   
   useEffect(() => {
     const fetchProduct = async () => {

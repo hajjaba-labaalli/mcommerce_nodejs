@@ -10,9 +10,9 @@ function Paiement() {
 
   const payerCommande =  async () => {
     try{
-      //onst paiementOk = false;
+    
       // Envoyer les détails de la commande au service de commande
-      const response = await axios.post('http://localhost:3002/api/paiements', {
+      const response = await axios.post('http://localhost:3002/api/paiements/', {
         idCommande: idCommande ,
         montant: price
       });
@@ -20,14 +20,13 @@ function Paiement() {
       if(response.data.paiementOk){
         navigate(`/confirmation/${response.data.paiementOk}`);
       }else{
-        navigate(`/confirmation/false`)
+        navigate(`/confirmation/false`);
       }
     
       // Effectuer la redirection vers la deuxième interface avec l'ID de commande et le prix de produit
-     
    
     }catch (error) {
-      console.error('Erreur lors de l\'envoi de la commande:', error)
+      console.error('Erreur lors de l\'envoi de la commande:', error);
   };
   };
 

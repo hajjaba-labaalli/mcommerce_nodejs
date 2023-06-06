@@ -23,7 +23,6 @@
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
     "request": "^2.88.2"
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
 
