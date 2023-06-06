@@ -17,10 +17,11 @@ router.post('/', async (req, res) => {
         const fetchCommande = async () => {
             try {
               const response = await axios.get(`http://localhost:3001/api/commandes/${req.body.idCommande}`);
-              return response.data;
+                return response.data;
             } catch (error) {
-              console.error('Erreur lors de la récupération de la commande:', error);
-              return;
+                res.status(404).json({ error: 'Erreur lors de la récupération de la commande', paiementOk :false });
+                console.error('Erreur lors de la récupération de la commande', error);
+                return;
             }
         };
 
@@ -50,7 +51,7 @@ router.post('/', async (req, res) => {
         res.json({ success: "Paiement enregistré avec succès",paiementOk :true });
     }   catch (error) {
         console.error('Erreur lors de l\'enregistrement du paiement:', error);
-        res.status(500).json({ error: 'Erreur lors de l\'enregistrement du paiement' });
+        res.status(500).json({ error: 'Erreur lors de l\'enregistrement du paiement', paiementOk :false });
         }
 });
 

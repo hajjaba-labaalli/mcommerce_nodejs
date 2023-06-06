@@ -29,9 +29,9 @@ router.get('/:id',  (req, res) => {
     const commande = Commande.findById(req.params.id);
     if (!commande) {
       res.status(404).json({ message: 'Cette commande n\'existe pas' });
+      return;
     } else {
       res.json(commande);
-      return;
       }
   } catch (error) {
     res.status(500).json({ error: 'Une erreur s\'est produite lors de la récupération de la commande' });
@@ -44,13 +44,13 @@ router.put('/:id',  (req, res) => {
     const commande= Commande.update(req.params.id, req.body);
     if (!commande) {
       res.status(404).json({ message: 'Cette commande n\'existe pas' });
+      return;
     } else {
       res.json(commande);
-      return;
     }
   } catch (error) {
     res.status(500).json({ error: 'Une erreur s\'est produite lors de la mise à jour de la commande' });
   }
 });
 
-module.exports = router
+module.exports = router;

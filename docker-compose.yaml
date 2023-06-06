@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  microsvc-produits:
+    image: produit
+    container_name: microsvc-produits
+    ports:
+    - 5000:5000
+  microsvc-commande:
+    image: commande
+    container_name: microsvc-commande
+    ports:
+    - 3001:3001
+  microsvc-paiement:
+    image: paiement
+    container_name: microsvc-paiement
+    ports:
+    - 3002:3002
+    depends_on:
+    - microsvc-commande
+  clientui:
+    image: client
+    container_name: clientui
+    ports:
+    - 3000:80
+    depends_on:
+    - microsvc-produits
+    - microsvc-commande
+    - microsvc-paiement
