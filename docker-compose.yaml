@@ -5,16 +5,22 @@ services:
     container_name: microsvc-produits
     ports:
     - 5000:5000
+    networks:
+    - appnetwork
   microsvc-commande:
     image: commande
     container_name: microsvc-commande
     ports:
     - 3001:3001
+    networks:
+    - appnetwork
   microsvc-paiement:
     image: paiement
     container_name: microsvc-paiement
     ports:
     - 3002:3002
+    networks:
+    - appnetwork
     depends_on:
     - microsvc-commande
   clientui:
@@ -22,7 +28,12 @@ services:
     container_name: clientui
     ports:
     - 3000:80
+    networks:
+    - appnetwork
     depends_on:
     - microsvc-produits
     - microsvc-commande
     - microsvc-paiement
+networks:
+  appnetwork:
+    driver: bridge
