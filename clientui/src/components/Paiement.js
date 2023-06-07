@@ -12,7 +12,7 @@ function Paiement() {
     try{
     
       // Envoyer les détails de la commande au service de commande
-      const response = await axios.post('http://localhost:3002/api/paiements/', {
+      const response = await axios.post('http://localhost:3002/api/paiements', {
         idCommande: idCommande ,
         montant: price
       });

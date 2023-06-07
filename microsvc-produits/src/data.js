@@ -1,5 +1,5 @@
 module.exports = {
-    mongoURI : "mongodb+srv://labaalli:"+process.env.PASSWORD+"@cluster0.8vtl0aw.mongodb.net/?retryWrites=true&w=majority"
+    mongoURI : "mongodb+srv://"+process.env.MONGO_USER+":"+process.env.MONGO_PASSWORD+"@cluster0.8vtl0aw.mongodb.net/?retryWrites=true&w=majority"
 }
 /*
 const Data = [

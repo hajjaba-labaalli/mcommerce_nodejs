@@ -22,7 +22,13 @@ mongoose
 
 app.use('/api/products', products);
 
+app.get('/health',(req, res) => {
+        res.send('server is running.');
+});
 
+app.get('/ready', (req , res) => {
+        res.send('server is ready.'); 
+});
 const port = process.env.PORT || 5000;
 
 app.listen(port , ()=> console.log('Server started on port ', port));
